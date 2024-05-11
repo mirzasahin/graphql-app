@@ -5,6 +5,7 @@ module.exports = {
     getPosts: async () => {
       try {
         const allPosts = await postSchema.find(); // Finding all data on the postSchema.
+        console.log(allPosts);
         return allPosts;
       } catch (error) {
         console.log(error);

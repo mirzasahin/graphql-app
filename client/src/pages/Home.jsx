@@ -1,9 +1,21 @@
-import React from 'react'
+import React from "react";
+import { useMutation, useQuery } from "@apollo/client";
+import { GET_POSTS } from "../graphql/query";
 
 const Home = () => {
-  return (
-    <div>Home</div>
-  )
-}
+  const { loading, error, data } = useQuery(GET_POSTS);
+  console.log(data);
 
-export default Home
+  return (
+    <div>
+      {data.getPosts.map((dt, i) => (
+        <div key={i}>
+          <strong>{dt.title}</strong>
+          <p>{dt.description}</p>
+        </div>
+      ))}
+    </div>
+  );
+};
+
+export default Home;

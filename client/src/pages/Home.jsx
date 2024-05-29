@@ -18,8 +18,6 @@ const Home = () => {
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error: {error.message}</p>;
 
-  if (!data || !data.getPosts || data.getPosts.length === 0) return <p>No posts found.</p>;
-
   return (
     <div>
       <input type="text" name="title" value={post.title} onChange={onChange}/>
